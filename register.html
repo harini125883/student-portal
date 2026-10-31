@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registration | KPR Admissions</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <strong>KPR Admissions</strong>
+    <nav><a href="register.html">Register</a><a href="../php-admin/index.php">Admin panel</a></nav>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h1>Student registration</h1>
+      <p class="hint">Fields marked * are required. Uploads: photo up to 2 MB, documents up to 5 MB.</p>
+
+      <!-- novalidate: validate.js shows our own messages; the server re-validates everything -->
+      <form id="regForm" action="../php-admin/add.php" method="post"
+            enctype="multipart/form-data" novalidate>
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="name">Full name *</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+            <span class="error" data-for="name"></span>
+          </div>
+
+          <div class="field">
+            <label for="roll_no">Roll number *</label>
+            <input id="roll_no" name="roll_no" type="text" placeholder="21CS001" required>
+            <span class="error" data-for="roll_no"></span>
+          </div>
+
+          <div class="field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <span class="error" data-for="email"></span>
+          </div>
+
+          <div class="field">
+            <label for="course">Course *</label>
+            <select id="course" name="course" required>
+              <option value="">Select a course</option>
+              <option>B.E. CSE</option><option>B.E. ECE</option>
+              <option>B.E. EEE</option><option>B.E. Mechanical</option>
+              <option>B.Tech IT</option><option>B.Tech AI &amp; DS</option>
+            </select>
+            <span class="error" data-for="course"></span>
+          </div>
+
+          <div class="field">
+            <label for="password">Password *</label>
+            <input id="password" name="password" type="password" autocomplete="new-password" required>
+            <div class="meter" aria-hidden="true"><span id="meterBar"></span></div>
+            <span class="hint" id="meterText">Use 8+ characters with upper, lower, number and symbol.</span>
+            <span class="error" data-for="password"></span>
+          </div>
+
+          <div class="field">
+            <label for="confirm">Confirm password *</label>
+            <input id="confirm" name="confirm" type="password" autocomplete="new-password" required>
+            <span class="error" data-for="confirm"></span>
+          </div>
+
+          <div class="field">
+            <label for="profile_image">Profile photo * (JPG/PNG, max 2 MB)</label>
+            <input id="profile_image" name="profile_image" type="file" accept=".jpg,.jpeg,.png"
+                   data-types="image/jpeg,image/png" data-max-mb="2" required>
+            <span class="error" data-for="profile_image"></span>
+          </div>
+
+          <div class="field">
+            <label for="id_proof">ID proof (PDF/JPG/PNG, max 5 MB)</label>
+            <input id="id_proof" name="id_proof" type="file" accept=".pdf,.jpg,.jpeg,.png"
+                   data-types="application/pdf,image/jpeg,image/png" data-max-mb="5">
+            <span class="error" data-for="id_proof"></span>
+          </div>
+
+          <div class="field full">
+            <label for="certificate">Certificate (PDF/JPG/PNG, max 5 MB)</label>
+            <input id="certificate" name="certificate" type="file" accept=".pdf,.jpg,.jpeg,.png"
+                   data-types="application/pdf,image/jpeg,image/png" data-max-mb="5">
+            <span class="error" data-for="certificate"></span>
+          </div>
+        </div>
+
+        <p><button class="btn accent" type="submit">Submit registration</button>
+           <button class="btn ghost" type="reset">Clear form</button></p>
+      </form>
+    </section>
+  </main>
+  <script src="js/validate.js"></script>
+</body>
+</html>

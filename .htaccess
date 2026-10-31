@@ -1,0 +1,4 @@
+# Never execute scripts from the upload folder
+php_flag engine off
+RemoveHandler .php .phtml .php3 .php5
+Options -Indexes -ExecCGI
